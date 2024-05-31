@@ -1,0 +1,34 @@
+.title {
+  color: #151313;
+  font-size: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigationLinks {
+  display: flex;
+  gap: 10px;
+}
+
+.link {
+  text-decoration: none;
+  color: #151313;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.link:hover,
+.link:focus {
+  color: #6e7e85;
+}
+
+.activeLink {
+  color: #6e7e85;
+}
