@@ -10,6 +10,11 @@ const notesSchema = new Schema(
     text: {
       type: String,
     },
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
   },
   { versionKey: false }
 );

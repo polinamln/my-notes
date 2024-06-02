@@ -7,16 +7,17 @@ import {
   editOneNote,
   getOneNoteByTitle,
 } from "../controllers/notesControllers.js";
+import { authMiddleware } from "../middlewares/authMiddleware.js";
 
 const notesRouter = express.Router();
 
-notesRouter.post("/", createNewNote);
+notesRouter.post("/", authMiddleware, createNewNote);
 
-notesRouter.get("/", getAllNotes);
-notesRouter.get("/:id", getOneNote);
-notesRouter.get("/title/:title", getOneNoteByTitle);
+notesRouter.get("/", authMiddleware, getAllNotes);
+notesRouter.get("/:id", authMiddleware, getOneNote);
+notesRouter.get("/title/:title", authMiddleware, getOneNoteByTitle);
 
 notesRouter.delete("/:id", deleteOneNote);
-notesRouter.patch("/:id", editOneNote);
+notesRouter.patch("/:id", authMiddleware, editOneNote);
 
 export default notesRouter;

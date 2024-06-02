@@ -4,7 +4,9 @@ export const createNewNote = async (req, res, next) => {
   const data = {
     title: req.body.title,
     text: req.body.text,
+    userId: req.user._id,
   };
+
   try {
     const newNote = await Note.create(data);
 
@@ -44,8 +46,9 @@ export const getOneNote = async (req, res, next) => {
 };
 
 export const getAllNotes = async (req, res, next) => {
+  const userId = req.user._id;
   try {
-    const notes = await Note.find();
+    const notes = await Note.find({ userId });
     res.status(200).send(notes);
   } catch (e) {
     next(e);

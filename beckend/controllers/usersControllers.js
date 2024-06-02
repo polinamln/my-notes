@@ -51,13 +51,14 @@ export const userLogin = async (req, res, next) => {
       { expiresIn: "7d" }
     );
 
-    await User.findByIdAndUpdate(user._id, { token });
+    await User.findByIdAndUpdate(user._id, { token }, { new: true });
 
     res.status(201).json({
       user: {
         name: user.name,
         email: user.email,
-        token: user.token,
+        token: token,
+        id: user._id,
       },
     });
   } catch (e) {
@@ -67,12 +68,18 @@ export const userLogin = async (req, res, next) => {
 
 export const userLogout = async (req, res, next) => {
   try {
+    await User.findByIdAndUpdate(req.user._id, { token: null });
+
+    res.status(204).end();
   } catch (e) {
     next(e);
   }
 };
 export const getCurrentUser = async (req, res, next) => {
   try {
+    const user = await User.findById(req.user._id);
+
+    res.status(200).send({ user });
   } catch (e) {
     next(e);
   }
