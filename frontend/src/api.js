@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:4000";
-// const API_URL = "https://my-notes-app-r4ys.onrender.com";
+// const API_URL = "http://localhost:4000";
+const API_URL = "https://my-notes-backend-vf0n.onrender.com";
 
 const token = localStorage.getItem("token");
 

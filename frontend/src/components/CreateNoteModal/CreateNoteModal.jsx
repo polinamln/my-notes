@@ -10,6 +10,7 @@ export default function CreateNoteModal({ setIsModalOpen, setNotes, notes }) {
   const [text, setText] = useState("");
 
   async function handleCreateNote(e) {
+    e.preventDefault();
     try {
       if (title === "") {
         toast.error("Please fill in the data before saving.");
@@ -21,6 +22,7 @@ export default function CreateNoteModal({ setIsModalOpen, setNotes, notes }) {
       setNotes([newNote, ...notes]);
 
       setIsModalOpen(false);
+      window.location.reload();
     } catch (e) {
       console.error(e);
     }
@@ -39,7 +41,7 @@ export default function CreateNoteModal({ setIsModalOpen, setNotes, notes }) {
         <form className={css.form} onSubmit={(e) => handleCreateNote(e)}>
           <input
             className={css.titleInput}
-            autoFocus="true"
+            autoFocus={true}
             type="text"
             placeholder="Title"
             value={title}

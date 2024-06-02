@@ -61,7 +61,7 @@ export function NoteModal({ setNoteOpenModal, setNotes, notes, currentNote }) {
             onChange={(e) => setTitle(e.target.value)}
           ></input>
           <textarea
-            autoFocus="true"
+            autoFocus={true}
             className={css.textInput}
             placeholder="Text"
             value={text}

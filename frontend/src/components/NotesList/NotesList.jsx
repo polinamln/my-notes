@@ -28,7 +28,7 @@ export default function NotesList({ notes, setNotes }) {
       }
     }
     getNotes();
-  }, []);
+  }, [setNotes]);
 
   async function handleClickDelete(noteId) {
     try {
@@ -36,6 +36,7 @@ export default function NotesList({ notes, setNotes }) {
 
       const newNotes = notes.filter((note) => note._id !== noteId);
       setNotes(newNotes);
+      window.location.reload();
     } catch (e) {
       console.error(e);
     }
