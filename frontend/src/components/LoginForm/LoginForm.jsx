@@ -19,7 +19,7 @@ export default function LoginForm() {
       localStorage.setItem("user", JSON.stringify(response.user));
 
       localStorage.setItem("token", token);
-      navigate("/notes");
+      navigate("/");
     } catch (e) {
       toast.error(`Login failed`);
     } finally {
