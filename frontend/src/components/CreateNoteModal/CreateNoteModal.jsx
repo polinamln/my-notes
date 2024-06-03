@@ -22,7 +22,7 @@ export default function CreateNoteModal({ setIsModalOpen, setNotes, notes }) {
       setNotes([newNote, ...notes]);
 
       setIsModalOpen(false);
-      window.location.reload();
+      // window.location.reload();
     } catch (e) {
       console.error(e);
     }

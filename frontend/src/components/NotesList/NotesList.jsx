@@ -36,7 +36,7 @@ export default function NotesList({ notes, setNotes }) {
 
       const newNotes = notes.filter((note) => note._id !== noteId);
       setNotes(newNotes);
-      window.location.reload();
+      // window.location.reload();
     } catch (e) {
       console.error(e);
     }
